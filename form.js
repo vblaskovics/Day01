@@ -7,17 +7,31 @@ const passwordReField = document.getElementById('form-password-re');
 const registrationForm = document.getElementById('form-registration');
 registrationForm.addEventListener("submit", handleSubmit)
 
-emailField.addEventListener("change", handleEmailChange);
+emailField.addEventListener("blur", handleEmailChange);
 
 function handleEmailChange(e) {
     e.preventDefault()
+    if(emailField.value === "") {
+        emailErrorField.classList.add('error');
+        emailField.classList.add('error');
+        emailErrorField.innerHTML = "Kötelező megadni!";
+        return;
+    } else {
+        emailErrorField.classList.remove('error');
+        emailField.classList.remove('error');
+    }
+
     if(emailField.value.indexOf('@') === -1){
         emailErrorField.classList.add('error');
+        emailErrorField.innerHTML = "Hibás email cím!"
         emailField.classList.add('error');
     } else {
         emailErrorField.classList.remove('error');
         emailField.classList.remove('error');
     }
+    
+
+
 }
 
 function handleSubmit(e) {
