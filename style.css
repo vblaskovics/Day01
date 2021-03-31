@@ -2,6 +2,23 @@ body {
     padding: 30px;
 }
 
+.form-registration {
+    background-color: lightgray;
+    width: 40%;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 15px;
+}
+
 .form-registration input {
     display: block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    min-width: 300px;
+    width: 100%;
+}
+
+.form-button {
+    margin-top: 25px;
+    width: 120px;
 }

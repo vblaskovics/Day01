@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,26 @@
     <title>Regisztráció</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Regisztráció</h1>
 
     <form class="form-registration">
-        <label for="">Felhasználónév</label>
+        <label for="form-username">Felhasználónév</label>
         <input id="form-username" name="username" type="text">
+
+        <label for="form-email">Email cím</label>
+        <input id="form-email" name="email" type="email">
+    
+        <label for="form-password">Jelszó</label>
+        <input id="form-password" name="password" type="password">
+    
+        <label for="form-password-re">Jelszó ismét</label>
+        <input id="form-password-re" name="passwordre" type="password">
+
+        <input class="form-button" type="submit" value="Mehet">
     </form>
+
 </body>
+
 </html>
