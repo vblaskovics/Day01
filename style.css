@@ -22,3 +22,15 @@ body {
     margin-top: 25px;
     width: 120px;
 }
+
+.error-msg {
+    font-size: 12px;
+    color: red;
+    margin: 0px;
+    margin-top: -14px;
+    visibility: hidden;
+}
+
+.error-msg.error {
+    visibility: visible;
+}
