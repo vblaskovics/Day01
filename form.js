@@ -13,8 +13,10 @@ function handleEmailChange(e) {
     e.preventDefault()
     if(emailField.value.indexOf('@') === -1){
         emailErrorField.classList.add('error');
+        emailField.classList.add('error');
     } else {
         emailErrorField.classList.remove('error');
+        emailField.classList.remove('error');
     }
 }
 
