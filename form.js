@@ -9,9 +9,6 @@ registrationForm.addEventListener("submit", handleSubmit)
 
 emailField.addEventListener("change", handleEmailChange);
 
-registrationForm.classList.add("ez-egy-class")
-registrationForm.classList.remove("ez-egy-class")
-
 function handleEmailChange(e) {
     e.preventDefault()
     if(emailField.value.indexOf('@') === -1){
