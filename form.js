@@ -8,7 +8,7 @@
     const formData = {};
     const isError = {};
 
-    const formFields = document.querySelectorAll('.form-registration input');
+    const formFields = document.querySelectorAll('.form-registration input, .form-registration select');
     formFields.forEach((field) => {
         formGroups[field.name] = {
             field: field,
@@ -41,11 +41,15 @@
         required: value => value === "" ?
             'Ez a mező kötelező!' : null,
         propername: value => value.length === 0 || value[0] !== value[0].toUpperCase() ?
-            'Nagy betűvel kell kezdődnie!' : null,
+            'Nagybetűvel kell kezdődnie!' : null,
         email: value => value.indexOf('@') === -1 ?
             'Kell benne @ karakternek lennie!' : null,
         hasnumber: (value) => !(/\d/.test(value)) ?
-            'Kell benne lennie számjegynek!' : null
+            'Kell benne lennie számjegynek!' : null,
+        morewords: (value) => value.split(' ').length < 2 ?
+            'Több szóból kell állnia!' : null,
+        alluppercase: (value) => value.split(' ').some(word => word[0] !== word[0].toUpperCase()) ?
+            'Minden szónak nagybetűvel kell kezdődnie!' : null
     }
 
     function validateField(rule, field) {
@@ -55,12 +59,25 @@
         return errorMsg == null
     }
 
+    function passwordValidation() {
+        const errorMsg = formData.password !== formData.passwordre ?
+            'A jelszavaknak meg kell egyezni!' : null;
+        setErrorMessage('password', errorMsg);
+        setErrorMessage('passwordre', errorMsg);
+        updateGroupByName('password');
+        updateGroupByName('passwordre');
+    }
+
     function handleInputBlur(e) {
         e.preventDefault();
         const field = e.target;
         formData[field.name] = field.value;
         const validationRules = field.getAttribute('data-validation').split(' ');
         validationRules.every(rule => validateField(rule, field))
+
+        if (formGroups['password'] && formGroups['passwordre']) {
+            passwordValidation()
+        }
     }
 
     function handleSubmit(e) {

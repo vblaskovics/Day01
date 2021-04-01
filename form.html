@@ -10,28 +10,50 @@
 </head>
 
 <body>
-    <h1>Regisztráció</h1>
+    <div class="form-container">
+        <h1>Regisztráció</h1>
+        <form id="form-registration" class="form-registration" novalidate>
+            <label for="form-username">Felhasználónév*</label>
+            <input id="form-username" name="username" type="text" data-validation="required propername">
+            <p id="error-username" class="error-msg"></p>
+            
+            <label for="form-fullname">Teljes név</label>
+            <input id="form-fullname" name="fullname" type="text" data-validation="morewords alluppercase">
+            <p id="error-fullname" class="error-msg"></p>
 
-    <form id="form-registration" class="form-registration" novalidate>
-        <label for="form-username">Felhasználónév*</label>
-        <input id="form-username" name="username" type="text" data-validation="required propername">
-        <p id="error-username" class="error-msg"></p>
+            <label for="form-email">Email cím*</label>
+            <input id="form-email" name="email" type="email" data-validation="required email">
+            <p id="error-email" class="error-msg"></p>
 
-        <label for="form-email">Email cím*</label>
-        <input id="form-email" name="email" type="email" data-validation="required email">
-        <p id="error-email" class="error-msg"></p>
-        
-        <label for="form-password">Jelszó*</label>
-        <input id="form-password" name="password" type="password" data-validation="required hasnumber">
-        <p id="error-password" class="error-msg"></p>
-        
-        <label for="form-passwordre">Jelszó ismét*</label>
-        <input id="form-passwordre" name="passwordre" type="password" data-validation="required hasnumber">
-        <p id="error-passwordre" class="error-msg"></p>
+            <label for="form-city">Város</label>
+            <input id="form-city" name="city" type="text" data-validation="propername">
+            <p id="error-city" class="error-msg"></p>
 
-        <button class="form-button" type="submit">Mehet</button>
-    </form>
+            <label for="form-address">Cím (utca, házszám)</label>
+            <input id="form-address" name="address" type="text" data-validation="propername hasnumber">
+            <p id="error-address" class="error-msg"></p>
 
+            <label for="form-sex">Nem*</label>
+            <select name="sex" id="form-sex" data-validation="required">
+                <option value="Férfi">Férfi</option>
+                <option value="Nő">Nő</option>
+                <option value="Egyéb">Egyéb</option>
+            </select>
+            <p id="error-sex" class="error-msg"></p>
+
+            <label for="form-password">Jelszó*</label>
+            <input id="form-password" name="password" type="password" data-validation="required hasnumber">
+            <p id="error-password" class="error-msg"></p>
+
+            <label for="form-passwordre">Jelszó ismét*</label>
+            <input id="form-passwordre" name="passwordre" type="password" data-validation="required hasnumber">
+            <p id="error-passwordre" class="error-msg"></p>
+
+            <div class="button-container">
+                <button class="form-button" type="submit">Mehet</button>
+            </div>
+        </form>
+    </div>
     <script src="form.js"></script>
 </body>
 

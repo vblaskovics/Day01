@@ -1,22 +1,43 @@
+input,
+select {
+  color: inherit; 
+  font: inherit; 
+  letter-spacing: inherit; 
+}
+
 body {
     padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(63, 62, 62);
+}
+h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.form-container {
+    background-color: rgb(238, 238, 238);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
 }
 
 .form-registration {
-    background-color: lightgray;
-    width: 40%;
-    padding: 20px;
-    max-width: 500px;
-    min-width: 300px;
-    border-radius: 15px;
+    margin: 20px;
 }
 
+.form-registration label {
+    text-transform: lowercase;
+}
 .form-registration input {
     display: block;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    min-width: 300px;
+    margin-top: 0px;
+    margin-bottom: 15px;
     width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border-color: rgb(216, 216, 216);
 }
 
 .form-registration input.form-button {
@@ -25,17 +46,42 @@ body {
 }
 
 .form-registration input.error {
-    background-color: rgb(233, 120, 120);
-    border: 2px solid red;
+    background-color: rgb(235, 155, 155);
+    border:solid rgb(241, 97, 97);
 }
 
 .error-msg {
-    font-size: 12px;
+    font-size: 10px;
     color: red;
     margin: 0px;
     visibility: hidden;
 }
 
 .error-msg.error {
+    margin-top: -14px;
     visibility: visible;
+}
+
+.form-button {
+    padding: 5px;
+    min-width: 80px;
+    border-radius: 5px;
+}
+
+.button-container {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-registration select {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border-color: rgb(216, 216, 216);
 }
