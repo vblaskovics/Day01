@@ -8,14 +8,15 @@
     const formData = {};
     const isError = {};
 
-    // {
-    //     username: ...,
-    //     email: ...,
-    // }
     const formFields = document.querySelectorAll('.form-registration input');
     formFields.forEach((field) => {
-        field.name
+        formGroups[field.name] = {
+            field: field,
+            errorField: document.getElementById(`error-${field.name}`)
+        };
     })
+
+    console.log('formGroups:', formGroups);
 
     function handleSubmit(e) {
         e.preventDefault();
