@@ -3,7 +3,7 @@
 (function () {
     const form = document.getElementById('form-registration');
     form.addEventListener("submit", handleSubmit);
-    
+
     const formGroups = {};
     const formData = {};
     const isError = {};
@@ -14,9 +14,39 @@
             field: field,
             errorField: document.getElementById(`error-${field.name}`)
         };
+        formData[field.name] = null;
+        field.addEventListener('blur', handleInputBlur);
     })
 
-    console.log('formGroups:', formGroups);
+    function setErrorMessage(fieldName, errorMsg) {
+        isError[fieldName] = errorMsg;
+    }
+
+    function updateGroupByName(fieldName) {
+        const errorMsg = isError[fieldName];
+        const group = formGroups[fieldName];
+
+        if (errorMsg) {
+            group.field.classList.add('error');
+            group.errorField.classList.add('error');
+            group.errorField.textContent = errorMsg;
+        }
+    }
+
+    function validateField(rule, field) {
+        if (rule === 'required' && field.value === "") {
+            setErrorMessage(field.name, 'Ez a mező kötelező');
+            updateGroupByName(field.name);
+        }
+    }
+
+    function handleInputBlur(e) {
+        e.preventDefault();
+        const field = e.target;
+        formData[field.name] = field.value;
+        const validationRules = field.getAttribute('data-validation').split(' ');
+        validateField(validationRules[0], field);
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
