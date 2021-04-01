@@ -40,7 +40,7 @@
     const validationFunctions = {
         required: value => value === "" ?
             'Ez a mező kötelező!' : null,
-        propername: value => value.length === 0 || value[0] !== value[0].toUpperCase() ? 
+        propername: value => value.length === 0 || value[0] !== value[0].toUpperCase() ?
             'Nagy betűvel kell kezdődnie!' : null,
         email: value => value.indexOf('@') === -1 ?
             'Kell benne @ karakternek lennie!' : null,
@@ -65,6 +65,21 @@
 
     function handleSubmit(e) {
         e.preventDefault();
-        alert('Siker');
+
+        Object.values(formGroups).forEach((group) => {
+            const validationRules = group.field.getAttribute('data-validation').split(' ');
+            if (validationRules.includes('required')) {
+                validateField('required', group.field);
+            }
+        })
+
+        const hasError = Object.keys(isError).some(key => isError[key] !== null)
+
+        if (hasError) {
+            alert("Nem sikerült")
+        } else {
+            alert("Sikerült")
+            console.log(formData);
+        }
     }
 })()
