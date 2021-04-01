@@ -83,3 +83,12 @@
         }
     }
 })()
+
+
+// FELADATOK
+// 1. Város mező hozzáadása, nem kötelező mező, nagybetűs
+// 2. Utca házszám, nagybetűs, szám van benne
+// 3. Teljes név, validáció: legalább 2 szó, mindegyik szó nagybetűs
+// 4. Jelszó egyezés vizsgálata
+// 5. Sikeres regisztráció után ürítsük ki a form-ot
+// 6. Nem választó (<select>)
