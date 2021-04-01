@@ -39,11 +39,17 @@
 
     const validationFunctions = {
         required: value => value === "" ?
-            'Ez a mező kötelező' : null
+            'Ez a mező kötelező!' : null,
+        propername: value => value.length === 0 || value[0] !== value[0].toUpperCase() ? 
+            'Nagy betűvel kell kezdődnie!' : null,
+        email: value => value.indexOf('@') === -1 ?
+            'Kell benne @ karakternek lennie!' : null,
+        hasnumber: (value) => !(/\d/.test(value)) ?
+            'Kell benne lennie számjegynek!' : null
     }
 
     function validateField(rule, field) {
-        const errorMsg = validationFunctions['required'](field.value);
+        const errorMsg = validationFunctions['propername'](field.value);
         setErrorMessage(field.name, errorMsg);
         updateGroupByName(field.name);
     }
