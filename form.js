@@ -30,14 +30,22 @@
             group.field.classList.add('error');
             group.errorField.classList.add('error');
             group.errorField.textContent = errorMsg;
+        } else {
+            group.field.classList.remove('error');
+            group.errorField.classList.remove('error');
+            group.errorField.textContent = '';
         }
     }
 
+    const validationFunctions = {
+        required: value => value === "" ?
+            'Ez a mező kötelező' : null
+    }
+
     function validateField(rule, field) {
-        if (rule === 'required' && field.value === "") {
-            setErrorMessage(field.name, 'Ez a mező kötelező');
-            updateGroupByName(field.name);
-        }
+        const errorMsg = validationFunctions['required'](field.value);
+        setErrorMessage(field.name, errorMsg);
+        updateGroupByName(field.name);
     }
 
     function handleInputBlur(e) {
