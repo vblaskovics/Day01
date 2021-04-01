@@ -49,9 +49,10 @@
     }
 
     function validateField(rule, field) {
-        const errorMsg = validationFunctions['propername'](field.value);
+        const errorMsg = validationFunctions[rule](field.value);
         setErrorMessage(field.name, errorMsg);
         updateGroupByName(field.name);
+        return errorMsg == null
     }
 
     function handleInputBlur(e) {
@@ -59,7 +60,7 @@
         const field = e.target;
         formData[field.name] = field.value;
         const validationRules = field.getAttribute('data-validation').split(' ');
-        validateField(validationRules[0], field);
+        validationRules.every(rule => validateField(rule, field))
     }
 
     function handleSubmit(e) {
