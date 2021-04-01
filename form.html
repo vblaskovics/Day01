@@ -14,19 +14,19 @@
 
     <form id="form-registration" class="form-registration" novalidate>
         <label for="form-username">Felhasználónév*</label>
-        <input id="form-username" name="username" type="text">
+        <input id="form-username" name="username" type="text" data-validation="required propername">
         <p id="error-username" class="error-msg"></p>
 
         <label for="form-email">Email cím*</label>
-        <input id="form-email" name="email" type="email">
+        <input id="form-email" name="email" type="email" data-validation="required email">
         <p id="error-email" class="error-msg"></p>
         
         <label for="form-password">Jelszó*</label>
-        <input id="form-password" name="password" type="password">
+        <input id="form-password" name="password" type="password" data-validation="required hasnumber">
         <p id="error-password" class="error-msg"></p>
         
         <label for="form-passwordre">Jelszó ismét*</label>
-        <input id="form-passwordre" name="passwordre" type="password">
+        <input id="form-passwordre" name="passwordre" type="password" data-validation="required hasnumber">
         <p id="error-passwordre" class="error-msg"></p>
 
         <button class="form-button" type="submit">Mehet</button>
